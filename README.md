@@ -56,88 +56,26 @@ The backend for Skillhunt Job Portal provides a robust API infrastructure built 
    pip install -r requirements.txt
    ```
 
-4. **Environment Configuration**
-   ```bash
-   cp .env.example .env
-   ```
-   Update the `.env` file with your configuration:
-
-   ```
-   # Database
-   DATABASE_URL=postgres://user:password@localhost:5432/skillhunt
-
-   # Django
-   SECRET_KEY=your_secret_key
-   DEBUG=True
-   ALLOWED_HOSTS=localhost,127.0.0.1
-
-   # JWT
-   JWT_SECRET_KEY=your_jwt_secret
-   ACCESS_TOKEN_LIFETIME=5  # in hours
-   REFRESH_TOKEN_LIFETIME=7  # in days
-
-   # Redis
-   REDIS_URL=redis://localhost:6379/0
-
-   # Google Auth
-   GOOGLE_CLIENT_ID=your_google_client_id
-   GOOGLE_CLIENT_SECRET=your_google_client_secret
-
-   # Payment
-   RAZORPAY_KEY_ID=your_razorpay_key
-   RAZORPAY_KEY_SECRET=your_razorpay_secret
-   
-   # Email (for OTP)
-   EMAIL_HOST=smtp.example.com
-   EMAIL_PORT=587
-   EMAIL_HOST_USER=your_email@example.com
-   EMAIL_HOST_PASSWORD=your_email_password
-   EMAIL_USE_TLS=True
-   ```
-
-5. **Database Setup**
+4. **Database Setup**
    ```bash
    python manage.py makemigrations
    python manage.py migrate
    ```
 
-6. **Create a superuser**
+5. **Create a superuser**
    ```bash
    python manage.py createsuperuser
    ```
 
-7. **Start the development server**
+6. **Start the development server**
    ```bash
    python manage.py runserver
    ```
 
-8. **For WebSocket support, run Daphne**
+7. **For WebSocket support, run Daphne**
    ```bash
    daphne -p 8001 skillhunt.asgi:application
    ```
-
-## 📁 Project Structure
-
-```
-backend/
-├── api/              # User authentication and profiles
-├── jobs/                  # Job listings and applications
-├── employers/             # Employer functionality
-├── resumes/               # Resume builder functionality
-├── interviews/            # Interview scheduling
-├── chat/                  # WebSocket-based chat
-├── subscriptions/         # Payment plans and subscriptions
-├── notifications/         # User notifications system
-├── utils/                 # Utility functions and helpers
-├── backend/
-│   ├── settings.py        # Project settings
-│   ├── urls.py            # Main URL routing
-│   ├── asgi.py            # ASGI configuration
-│   └── wsgi.py            # WSGI configuration
-├── manage.py
-├── requirements.txt
-└── README.md
-```
 
 ## 🔑 API Endpoints
 
